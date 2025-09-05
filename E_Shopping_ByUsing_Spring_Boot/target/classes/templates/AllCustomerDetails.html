@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<center>
+		<h1>All Customer Details</h1>
+		<form action="filtercustomer">
+		<input placeholder="Enter Name Or Emailid Or Gender" name="name">
+		<input type="submit" value="Submit">
+		</form>
+		<table border=2px solid blue cellspcing=0px cellpadding=5px>
+		<tr>
+		<th>Name</th>
+		<th>Address</th>
+		<th>Emailid</th>
+		<th>MobileNumber</th>
+		<th>Password</th>
+		<th>Gender</th>
+		</tr>
+		<tr th:each="Customer:${allCustomerDetails}">
+		<td th:text="${Customer.name}"></td>
+		<td th:text="${Customer.address}"></td>
+		<td th:text="${Customer.emailid}"></td>
+		<td th:text="${Customer.mobilenumber}"></td>
+		<td th:text="${Customer.password}"></td>
+		<td th:text="${Customer.gender}"></td>
+		<td>
+		<form action="deletebyname">
+		<input th:value="${Customer.name}" hidden=true name="name">
+		<button type="submit">Delete</button>
+		</form>
+		</td>
+		</tr>
+		
+		
+		</table>
+	</center>
+</body>
+</html>
